@@ -1,0 +1,107 @@
+[gd_scene load_steps=11 format=4 uid="uid://bsptj8pribedk"]
+
+[ext_resource type="Script" path="res://Levels/scripts/level.gd" id="1_pxi0j"]
+[ext_resource type="AudioStream" uid="uid://cph6d67x0q2hx" path="res://title_scene/audio/waves.mp3" id="2_06euf"]
+[ext_resource type="PackedScene" uid="uid://dij47sgsurfmu" path="res://Tile Maps/grass-tiles-01.tscn" id="3_qn4p2"]
+[ext_resource type="PackedScene" uid="uid://dr4blo7ya448q" path="res://Levels/player_spawn.tscn" id="4_temqf"]
+[ext_resource type="PackedScene" uid="uid://vlpiuopcomwi" path="res://Levels/level_transition.tscn" id="6_2c3i6"]
+[ext_resource type="PackedScene" uid="uid://byh7pssuelk85" path="res://quests/utility_nodes/quest_advance_trigger.tscn" id="18_rk2d7"]
+[ext_resource type="PackedScene" uid="uid://cf0a8hxch6kfd" path="res://Props/pot/pot.tscn" id="20_e0pj7"]
+[ext_resource type="PackedScene" uid="uid://ch2oxh3rsa2fr" path="res://Interactables/dungeon/pressure_plate.tscn" id="21_qkql5"]
+[ext_resource type="Resource" uid="uid://cx38on0tnqdyi" path="res://quests/long_quest.tres" id="22_30unb"]
+[ext_resource type="PackedScene" uid="uid://bubhbk5whebih" path="res://quests/utility_nodes/quest_activated_switch.tscn" id="23_7ybm4"]
+
+[node name="02" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_pxi0j")
+music = ExtResource("2_06euf")
+
+[node name="grass-tiles-03" parent="." instance=ExtResource("3_qn4p2")]
+tile_map_data = PackedByteArray("AAD2//3/AAAAAAAAAAD3//3/AAAAAAAAAAD4//3/AAAAAAAAAAD5//3/AAAAAAAAAAD6//3/AAAAAAAAAAD7//7/AAAAAAAAAAD8//7/AAAAAAAAAAAGAAIAAAAGAEMAAGAFAAIAAAAGAEMAAGAHAAIAAAAGAEMAAGAIAAIAAAAGAEYAAAAHAAEAAAAGAEYAAAAGAAEAAAAGAEMAAFAFAAEAAAAGAEYAAAA=")
+
+[node name="grass-tiles-02" parent="." instance=ExtResource("3_qn4p2")]
+tile_map_data = PackedByteArray("AAACAAcABgAcAAYAAAACAAgABgAcAAcAAAADAAcABgAdAAYAAAADAAgABgAdAAcAAAAEAAcABgAeAAYAAAAEAAgABgAeAAcAAAAFAAcABgAfAAYAAAAFAAgABgAfAAcAAAAGAAcABgAgAAYAAAAGAAgABgAgAAcAAAAHAAcABgAhAAYAAAAHAAgABgAhAAcAAAAIAAcABgAiAAYAAAAIAAgABgAiAAcAAAAJAAcABgAjAAYAAAAJAAgABgAjAAcAAAAKAAcABgAkAAYAAAAKAAgABgAkAAcAAAACAAYABgAcAAYAAAADAAYABgAdAAYAAAAEAAYABgAeAAYAAAAFAAYABgAfAAYAAAAGAAYABgAgAAYAAAAHAAYABgAhAAYAAAAIAAYABgAiAAYAAAAJAAYABgAjAAYAAAAKAAYABgAkAAYAAAACAAUABgAcAAYAAAADAAUABgAdAAYAAAAEAAUABgAeAAYAAAAFAAUABgAfAAYAAAAGAAUABgAgAAYAAAAHAAUABgAhAAYAAAAIAAUABgAiAAYAAAAJAAUABgAjAAYAAAAKAAUABgAkAAYAAAACAAQABgAcAAYAAAADAAQABgAdAAYAAAAEAAQABgAeAAYAAAAFAAQABgAfAAYAAAAGAAQABgAgAAYAAAAHAAQABgAhAAYAAAAIAAQABgAiAAYAAAAJAAQABgAjAAYAAAAKAAQABgAkAAYAAAACAAMABgAcAAUAAAADAAMABgAdAAUAAAAEAAMABgAeAAUAAAAFAAMABgAfAAUAAAAGAAMABgAgAAUAAAAHAAMABgAhAAUAAAAIAAMABgAiAAUAAAAJAAMABgAjAAUAAAAKAAMABgAkAAUAAAACAAIABgAcAAQAAAADAAIABgAdAAQAAAAEAAIABgAeAAQAAAAFAAIABgAfAAQAAAAGAAIABgAgAAQAAAAHAAIABgAhAAQAAAAIAAIABgAiAAQAAAAJAAIABgAjAAQAAAAKAAIABgAkAAQAAAAAAAEABgAaAAMAAAABAAEABgAbAAMAAAACAAEABgAcAAMAAAADAAEABgAdAAMAAAAEAAEABgAeAAMAAAAFAAEABgAfAAMAAAAGAAEABgAgAAMAAAAAAAIABgAaAAQAAAD//wIABgAZAAQAAAD//wEABgAZAAMAAAABAAIABgAbAAQAAAABAAMABgAbAAUAAAABAAQABgAbAAYAAAABAAUABgAbAAYAAAABAAYABgAbAAYAAAABAAcABgAbAAYAAAABAAgABgAbAAcAAAAHAP//BgAhAAEAAAAHAAAABgAhAAIAAAAHAAEABgAhAAMAAAAIAP//BgAiAAEAAAAIAAAABgAiAAIAAAAIAAEABgAiAAMAAAAJAAAABgAjAAIAAAAJAAEABgAjAAMAAAAKAAAABgAkAAIAAAAKAAEABgAkAAMAAAALAAEABgAlAAMAAAALAAIABgAlAAQAAAALAAMABgAlAAUAAAAMAAEABgAmAAMAAAAMAAIABgAmAAQAAAANAAEABgAnAAMAAAANAAIABgAnAAQAAAAEAP//BgAeAAEAAAAEAAAABgAeAAIAAAAFAP//BgAfAAEAAAAFAAAABgAfAAIAAAAGAP7/BgAgAAAAAAAGAP//BgAgAAEAAAAGAAAABgAgAAIAAAADAAAABgAdAAIAAAACAAAABgAcAAIAAAALAAQABgAlAAYAAAALAAUABgAlAAYAAAALAAYABgAlAAYAAAALAAcABgAlAAYAAAALAAgABgAlAAcAAAABAAkABgAbAAgAAAACAAkABgAcAAgAAAADAAkABgAdAAgAAAADAAoABgAdAAkAAAAEAAkABgAeAAgAAAAEAAoABgAeAAkAAAAFAAkABgAfAAgAAAAFAAoABgAfAAkAAAAFAAsABgAfAAoAAAAGAAkABgAgAAgAAAAGAAoABgAgAAkAAAAGAAsABgAgAAoAAAAHAAkABgAhAAgAAAAHAAoABgAhAAkAAAAHAAsABgAhAAoAAAAIAAkABgAiAAgAAAAIAAoABgAiAAkAAAAJAAkABgAjAAgAAAAJAAoABgAjAAkAAAAKAAkABgAkAAgAAAAKAAoABgAkAAkAAAALAAkABgAlAAgAAAALAAoABgAlAAkAAAA=")
+
+[node name="grass-tiles-01" parent="." instance=ExtResource("3_qn4p2")]
+tile_map_data = PackedByteArray("AAD//wgABgAZAAsAAAD//wkABgAZAAwAAAAAAAgABgAaAAsAAAAAAAkABgAaAAwAAAABAAgABgAbAAsAAAABAAkABgAbAAwAAAABAAoABgAbAA0AAAACAAgABgAcAAsAAAACAAkABgAcAAwAAAACAAoABgAcAA0AAAADAAkABgAdAAwAAAADAAoABgAdAA0AAAAEAAkABgAeAAwAAAAEAAoABgAeAA0AAAAFAAgABgAfAAsAAAAFAAkABgAfAAwAAAAFAAoABgAfAA0AAAAHAAgABgAhAAsAAAAHAAkABgAhAAwAAAAHAAoABgAhAA0AAAAIAAkABgAiAAwAAAAIAAoABgAiAA0AAAAJAAkABgAjAAwAAAAJAAoABgAjAA0AAAAKAAgABgAkAAsAAAAKAAkABgAkAAwAAAAKAAoABgAkAA0AAAALAAgABgAlAAsAAAALAAkABgAlAAwAAAALAAoABgAlAA0AAAAMAAgABgAmAAsAAAAMAAkABgAmAAwAAAANAAgABgAnAAsAAAANAAkABgAnAAwAAAACAAMAAgADAEoAAAADAAMAAgAEAEoAAAAIAAMAAgAFAEgAAAAIAAQAAgAFAEkAAAAIAAUAAgAFAEoAAAAJAAMAAgAGAEgAAAAJAAQAAgAGAEkAAAAJAAUAAgAGAEoAAAA=")
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("4_temqf")]
+position = Vector2(208, 218)
+
+[node name="LevelTransition" parent="." instance=ExtResource("6_2c3i6")]
+position = Vector2(224, -64)
+level = "res://Levels/Area01/01.tscn"
+side = 2
+
+[node name="Pot" parent="." instance=ExtResource("20_e0pj7")]
+position = Vector2(144, 210)
+
+[node name="Pot2" parent="." instance=ExtResource("20_e0pj7")]
+position = Vector2(107, 210)
+
+[node name="PressurePlate4" parent="." instance=ExtResource("21_qkql5")]
+position = Vector2(127, 141)
+
+[node name="QuestAdvanceTrigger" parent="PressurePlate4" instance=ExtResource("18_rk2d7")]
+signal_name = "activated"
+linked_quest = ExtResource("22_30unb")
+settings_summary = "UPDATE QUEST: 
+Quest: Long Quest
+Step: 0 - N/A
+Complete: false"
+
+[node name="QuestActivatedSwitch" parent="." instance=ExtResource("23_7ybm4")]
+position = Vector2(189, 139)
+react_to_global_signal = true
+linked_quest = ExtResource("22_30unb")
+settings_summary = "UPDATE QUEST: 
+Quest: Long Quest
+Checking if player has quest"
+
+[node name="PressurePlate2" parent="QuestActivatedSwitch" instance=ExtResource("21_qkql5")]
+position = Vector2(-3, 2)
+
+[node name="QuestAdvanceTrigger" parent="QuestActivatedSwitch/PressurePlate2" instance=ExtResource("18_rk2d7")]
+signal_name = "activated"
+linked_quest = ExtResource("22_30unb")
+quest_step = 1
+settings_summary = "UPDATE QUEST: 
+Quest: Long Quest
+Step: 1 - step 1
+Complete: false"
+
+[node name="QuestActivatedSwitch2" parent="." instance=ExtResource("23_7ybm4")]
+position = Vector2(240, 139)
+check_type = 2
+react_to_global_signal = true
+linked_quest = ExtResource("22_30unb")
+quest_step = 2
+settings_summary = "UPDATE QUEST: 
+Quest: Long Quest
+Check if player is on step:step 2"
+
+[node name="PressurePlate3" parent="QuestActivatedSwitch2" instance=ExtResource("21_qkql5")]
+position = Vector2(-3, 2)
+
+[node name="QuestAdvanceTrigger" parent="QuestActivatedSwitch2/PressurePlate3" instance=ExtResource("18_rk2d7")]
+signal_name = "activated"
+linked_quest = ExtResource("22_30unb")
+quest_step = 2
+quest_complete = true
+settings_summary = "UPDATE QUEST: 
+Quest: Long Quest
+Step: 2 - step 2
+Complete: true"
+
+[node name="QuestActivatedSwitch3" parent="." instance=ExtResource("23_7ybm4")]
+position = Vector2(243, 201)
+check_type = 3
+react_to_global_signal = true
+linked_quest = ExtResource("22_30unb")
+quest_complete = true
+settings_summary = "UPDATE QUEST: 
+Quest: Long Quest
+Checking if quest is complete"
+
+[node name="Pot3" parent="QuestActivatedSwitch3" instance=ExtResource("20_e0pj7")]
+position = Vector2(-6, 2)

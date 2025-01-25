@@ -1,0 +1,380 @@
+[gd_scene load_steps=14 format=3 uid="uid://dyv5op6ysqdyy"]
+
+[ext_resource type="Script" path="res://Player/scripts/Character_Creator.gd" id="1_70a1s"]
+[ext_resource type="Texture2D" uid="uid://b4dequ7vav23c" path="res://Player/Sprites/body.png" id="2_jv3c4"]
+[ext_resource type="Script" path="res://Player/scripts/Outfit.gd" id="3_lf2ho"]
+[ext_resource type="Texture2D" uid="uid://dif5fc63yrlb7" path="res://Player/Sprites/outfit.png" id="4_gih8k"]
+[ext_resource type="Script" path="res://Player/scripts/Accessory.gd" id="5_57rxs"]
+[ext_resource type="Texture2D" uid="uid://crbp2qbcct6lo" path="res://Player/Sprites/acc2.png" id="6_0ibti"]
+[ext_resource type="Script" path="res://Player/scripts/Hair.gd" id="7_grqre"]
+[ext_resource type="Texture2D" uid="uid://bcay6hiddqecb" path="res://Player/Sprites/hair.png" id="8_ia05p"]
+[ext_resource type="Texture2D" uid="uid://c4puus3vnryim" path="res://Assets/arrow.png" id="9_ygccc"]
+
+[sub_resource type="Animation" id="Animation_2bxne"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Outfit/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hair/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Accessory/Sprite2D:frame_coords")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Accessory/Sprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qwkq2"]
+resource_name = "idle"
+length = 8.0
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 50]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Outfit/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 50]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hair/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 50]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Accessory/Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 50]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b880j"]
+_data = {
+"RESET": SubResource("Animation_2bxne"),
+"idle": SubResource("Animation_qwkq2")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j48ky"]
+content_margin_left = 12.0
+content_margin_top = 6.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[node name="CharacterCreator" type="Node2D"]
+script = ExtResource("1_70a1s")
+metadata/_edit_horizontal_guides_ = [222.0]
+metadata/_edit_vertical_guides_ = [64.0]
+
+[node name="Skeleton" type="Node2D" parent="."]
+position = Vector2(155, 93)
+
+[node name="Body" type="Node2D" parent="Skeleton"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Body"]
+position = Vector2(-3.5, 7)
+texture = ExtResource("2_jv3c4")
+hframes = 17
+vframes = 8
+
+[node name="Outfit" type="Node2D" parent="Skeleton"]
+script = ExtResource("3_lf2ho")
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Outfit"]
+position = Vector2(-3.5, 7)
+texture = ExtResource("4_gih8k")
+hframes = 17
+vframes = 8
+
+[node name="Accessory" type="Node2D" parent="Skeleton"]
+script = ExtResource("5_57rxs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Accessory"]
+position = Vector2(-3.5, 7)
+texture = ExtResource("6_0ibti")
+hframes = 17
+vframes = 8
+
+[node name="Hair" type="Node2D" parent="Skeleton"]
+script = ExtResource("7_grqre")
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Hair"]
+position = Vector2(-3.5, 7)
+texture = ExtResource("8_ia05p")
+hframes = 17
+vframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Skeleton"]
+libraries = {
+"": SubResource("AnimationLibrary_b880j")
+}
+autoplay = "idle"
+
+[node name="CreatorScreen" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CreatorScreen"]
+offset_left = -2.0
+offset_top = 4.0
+offset_right = 480.0
+offset_bottom = 269.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_j48ky")
+
+[node name="ColorRect" type="ColorRect" parent="CreatorScreen/PanelContainer"]
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Details" type="ColorRect" parent="CreatorScreen/PanelContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -194.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="CreatorScreen/PanelContainer/ColorRect/Details"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 18.0
+offset_right = 204.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 10
+text = "Name"
+
+[node name="TextEdit" type="TextEdit" parent="CreatorScreen/PanelContainer/ColorRect/Details"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -356.0
+offset_top = -23.5
+offset_right = -56.0
+offset_bottom = 19.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+placeholder_text = "Name"
+
+[node name="Hair" type="ColorRect" parent="CreatorScreen/PanelContainer/ColorRect"]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 25.0
+offset_right = 94.0
+offset_bottom = 72.0
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="CreatorScreen/PanelContainer/ColorRect/Hair"]
+layout_mode = 1
+offset_left = 44.0
+offset_top = 21.0
+offset_right = 91.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 10
+text = "Hair Style"
+
+[node name="CollectionButton" type="Button" parent="CreatorScreen/PanelContainer/ColorRect/Hair"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 26.5
+offset_top = 17.0
+offset_right = 66.5
+offset_bottom = 57.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("9_ygccc")
+
+[node name="Label2" type="Label" parent="CreatorScreen/PanelContainer/ColorRect/Hair"]
+visible = false
+layout_mode = 1
+offset_left = 229.0
+offset_top = 1.0
+offset_right = 373.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 25
+text = "Hair Color"
+
+[node name="ColorButton2" type="Button" parent="CreatorScreen/PanelContainer/ColorRect/Hair"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 201.0
+offset_top = 1.0
+offset_right = 241.0
+offset_bottom = 41.0
+grow_horizontal = 2
+
+[node name="Outfit" type="ColorRect" parent="CreatorScreen/PanelContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -498.0
+offset_top = 111.0
+offset_right = -316.0
+offset_bottom = 158.0
+grow_horizontal = 0
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="CreatorScreen/PanelContainer/ColorRect/Outfit"]
+layout_mode = 1
+offset_left = 53.0
+offset_top = 15.0
+offset_right = 197.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 10
+text = "Outfit
+"
+
+[node name="CollectionButton" type="Button" parent="CreatorScreen/PanelContainer/ColorRect/Outfit"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 6.0
+offset_top = 10.0
+offset_right = 46.0
+offset_bottom = 50.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("9_ygccc")
+
+[node name="Accessory" type="ColorRect" parent="CreatorScreen/PanelContainer/ColorRect"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 0
+offset_left = -12.0
+offset_top = 69.0
+offset_right = 188.0
+offset_bottom = 129.0
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="CreatorScreen/PanelContainer/ColorRect/Accessory"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 17.0
+offset_right = 56.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 10
+text = "Accessory	"
+
+[node name="CollectionButton" type="Button" parent="CreatorScreen/PanelContainer/ColorRect/Accessory"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 13.0
+offset_right = 8.0
+offset_bottom = 53.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("9_ygccc")
+
+[node name="ConfirmButton" type="Button" parent="CreatorScreen/PanelContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 206.0
+offset_top = -185.0
+offset_right = -91.0
+offset_bottom = -154.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "confirm"
+
+[connection signal="text_changed" from="CreatorScreen/PanelContainer/ColorRect/Details/TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="CreatorScreen/PanelContainer/ColorRect/Hair/CollectionButton" to="Skeleton/Hair" method="_on_collection_button_pressed"]
+[connection signal="pressed" from="CreatorScreen/PanelContainer/ColorRect/Hair/ColorButton2" to="Skeleton/Hair" method="_on_color_button_2_pressed"]
+[connection signal="pressed" from="CreatorScreen/PanelContainer/ColorRect/Outfit/CollectionButton" to="Skeleton/Outfit" method="_on_collection_button_pressed"]
+[connection signal="pressed" from="CreatorScreen/PanelContainer/ColorRect/Accessory/CollectionButton" to="Skeleton/Accessory" method="_on_collection_button_pressed"]
+[connection signal="pressed" from="CreatorScreen/PanelContainer/ColorRect/ConfirmButton" to="." method="_on_confirm_button_pressed"]

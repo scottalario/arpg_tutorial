@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://6154b7tv64r4"]
+
+[ext_resource type="Texture2D" uid="uid://tyu0cnajr218" path="res://Player/Sprites/PngItem_575342.png" id="1_iw0ta"]
+
+[node name="Testplayr" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_iw0ta")
+hframes = 8
+vframes = 6
+frame = 16

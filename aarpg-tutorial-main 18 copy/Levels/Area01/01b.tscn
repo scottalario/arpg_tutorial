@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=4 uid="uid://clywhcyc5086y"]
+
+[ext_resource type="Script" path="res://Levels/scripts/level.gd" id="1_f7vwh"]
+[ext_resource type="AudioStream" uid="uid://dmgwymn3xxpu5" path="res://title_scene/audio/waves.wav" id="2_1blkt"]
+[ext_resource type="PackedScene" uid="uid://dij47sgsurfmu" path="res://Tile Maps/grass-tiles-01.tscn" id="3_rvacs"]
+[ext_resource type="PackedScene" uid="uid://dr4blo7ya448q" path="res://Levels/player_spawn.tscn" id="4_fqsa3"]
+[ext_resource type="PackedScene" uid="uid://vlpiuopcomwi" path="res://Levels/level_transition.tscn" id="5_vtj5k"]
+[ext_resource type="Texture2D" uid="uid://d1ant6otmcv1l" path="res://Tile Maps/Sprites/ship-animations-sideways-idle-baked-packed.png" id="6_4vjx5"]
+
+[sub_resource type="Animation" id="Animation_l66y5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_1gr1b"]
+resource_name = "new_animation"
+length = 5.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 14]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iwoj5"]
+_data = {
+"RESET": SubResource("Animation_l66y5"),
+"new_animation": SubResource("Animation_1gr1b")
+}
+
+[node name="01" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_f7vwh")
+music = ExtResource("2_1blkt")
+
+[node name="grass-tiles-02" parent="." instance=ExtResource("3_rvacs")]
+tile_map_data = PackedByteArray("AAAAAAAAAAAGAEYAAAAAAAEAAAAGAEYAAAAAAAIAAAAGAEYAAAAAAAgAAAAGAEYAAAAAAAkAAAAGAEYAAAAAAAoAAAAGAEYAAAABAAAAAAAGAEYAAAABAAEAAAAGAEYAAAABAAIAAAAGAEYAAAABAAgAAAAGAEYAAAABAAkAAAAGAEYAAAABAAoAAAAGAEYAAAACAAAAAAAGAEYAAAACAAEAAAAGAEYAAAACAAIAAAAGAEYAAAACAAgAAAAGAEYAAAACAAkAAAAGAEYAAAACAAoAAAAGAEYAAAADAAAAAAAGAEYAAAADAAEAAAAGAEYAAAADAAIAAAAGAEYAAAADAAgAAAAGAEYAAAADAAkAAAAGAEYAAAADAAoAAAAGAEYAAAAEAAAAAAAGAEYAAAAEAAEAAAAGAEYAAAAEAAIAAAAGAEYAAAAEAAgAAAAGAEYAAAAEAAkAAAAGAEYAAAAEAAoAAAAGAEYAAAAFAAAAAAAGAEYAAAAFAAEAAAAGAEYAAAAFAAIAAAAGAEYAAAAFAAgAAAAGAEYAAAAFAAkAAAAGAEYAAAAFAAoAAAAGAEYAAAAGAAAAAAAGAEYAAAAGAAEAAAAGAEYAAAAGAAIAAAAGAEYAAAAGAAgAAAAGAEYAAAAGAAkAAAAGAEYAAAAGAAoAAAAGAEYAAAAHAAAAAAAGAEYAAAAHAAEAAAAGAEYAAAAHAAIAAAAGAEYAAAAHAAgAAAAGAEYAAAAHAAkAAAAGAEYAAAAHAAoAAAAGAEYAAAAIAAAAAAAGAEYAAAAIAAEAAAAGAEYAAAAIAAIAAAAGAEYAAAAIAAgAAAAGAEYAAAAIAAkAAAAGAEYAAAAIAAoAAAAGAEYAAAAJAAAAAAAGAEYAAAAJAAEAAAAGAEYAAAAJAAIAAAAGAEYAAAAJAAgAAAAGAEYAAAAJAAkAAAAGAEYAAAAJAAoAAAAGAEYAAAAKAAAAAAAGAEYAAAAKAAEAAAAGAEYAAAAKAAIAAAAGAEYAAAAKAAgAAAAGAEYAAAAKAAkAAAAGAEYAAAAKAAoAAAAGAEYAAAALAAAAAAAGAEYAAAALAAEAAAAGAEYAAAALAAIAAAAGAEYAAAALAAgAAAAGAEYAAAALAAkAAAAGAEYAAAALAAoAAAAGAEYAAAAMAAAAAAAGAEYAAAAMAAEAAAAGAEYAAAAMAAIAAAAGAEYAAAAMAAgAAAAGAEYAAAAMAAkAAAAGAEYAAAAMAAoAAAAGAEYAAAANAAAAAAAGAEYAAAANAAEAAAAGAEYAAAANAAIAAAAGAEYAAAANAAgAAAAGAEYAAAANAAkAAAAGAEYAAAANAAoAAAAGAEYAAAAOAAAAAAAGAEYAAAAOAAEAAAAGAEYAAAAOAAIAAAAGAEYAAAAOAAgAAAAGAEYAAAAOAAkAAAAGAEYAAAAOAAoAAAAGAEYAAAAFAAMAAAAGAEYAAAAAAAMAAAAGAEYAAAAAAAUAAAAGAEYAAAAAAAYAAAAGAEYAAAAAAAcAAAAGAEYAAAAGAAMAAAAGAEYAAAABAAYAAAAGAEYAAAACAAYAAAAGAEYAAAAHAAMAAAAGAEYAAAAIAAMAAAAGAEYAAAAJAAMAAAAGAEYAAAAKAAMAAAAGAEYAAAALAAMAAAAGAEYAAAAOAAQAAAAGAEYAAAAOAAUAAAAGAEYAAAAOAAYAAAAGAEYAAAAOAAcAAAAGAEYAAAAOAAMAAAAGAEYAAAANAAMAAAAGAEYAAAANAAYAAAAGAEYAAAANAAUAAAAGAEYAAAADAAcAAAAGAEYAAAACAAcAAAAGAEYAAAABAAcAAAAGAEYAAAAMAAcAAAAGAEYAAAANAAcAAAAGAEYAAAAMAAMAAAAGAEYAAAAEAAMAAAAGAEYAAAAAAAQAAAAGAEYAAAA=")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(248, 169)
+texture = ExtResource("6_4vjx5")
+hframes = 4
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_iwoj5")
+}
+autoplay = "new_animation"
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("4_fqsa3")]
+z_index = 1
+position = Vector2(193, 205)
+
+[node name="LevelTransition" parent="." instance=ExtResource("5_vtj5k")]
+z_index = 1
+position = Vector2(250, 217)
+level = "res://Levels/Area01/02.tscn"
+size = 3
+side = 3
+
+[node name="LevelTransition2" parent="." instance=ExtResource("5_vtj5k")]
+z_index = 1
+position = Vector2(107, 187)
+level = "res://Levels/Area01/02.tscn"
+size = 1
+side = 1

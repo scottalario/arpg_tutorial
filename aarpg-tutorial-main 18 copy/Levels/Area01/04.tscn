@@ -1,0 +1,156 @@
+[gd_scene load_steps=20 format=3 uid="uid://7um8ujbu061u"]
+
+[ext_resource type="Script" path="res://Levels/scripts/level.gd" id="1_bx0re"]
+[ext_resource type="AudioStream" uid="uid://io7jxqk648xa" path="res://Levels/music/example_music_01.ogg" id="2_g4lbt"]
+[ext_resource type="PackedScene" uid="uid://dgdqc0v1oicd5" path="res://Tile Maps/grass-01.tscn" id="3_tihk8"]
+[ext_resource type="PackedScene" uid="uid://bney7nbqkhjlm" path="res://Tile Maps/beach.tscn" id="4_bcgpe"]
+[ext_resource type="PackedScene" uid="uid://dr4blo7ya448q" path="res://Levels/player_spawn.tscn" id="4_rr8gq"]
+[ext_resource type="PackedScene" uid="uid://d4igjv570x7c4" path="res://Props/Plants/plant.tscn" id="5_gyos1"]
+[ext_resource type="PackedScene" uid="uid://vlpiuopcomwi" path="res://Levels/level_transition.tscn" id="6_xei8u"]
+[ext_resource type="PackedScene" uid="uid://bi8crg3nv50qw" path="res://npc/npc.tscn" id="7_57inr"]
+[ext_resource type="Resource" uid="uid://csvi3x1wp3gy6" path="res://npc/00_npcs/npc_01.tres" id="8_14n6t"]
+[ext_resource type="PackedScene" uid="uid://dapdr3ojo2pha" path="res://npc/npc_behavior_wander.tscn" id="9_h8wga"]
+[ext_resource type="PackedScene" uid="uid://b22o8rtjyby8c" path="res://Interactables/dialog/dialog_interaction.tscn" id="10_iv6sw"]
+[ext_resource type="Script" path="res://Interactables/dialog/scripts/dialog_text.gd" id="11_qqshg"]
+[ext_resource type="Resource" uid="uid://cdc3sykvmnn27" path="res://npc/00_npcs/00_hero.tres" id="12_qg4ph"]
+[ext_resource type="Resource" uid="uid://bqfxxks18ou8u" path="res://npc/00_npcs/npc_02.tres" id="13_gyfl5"]
+[ext_resource type="PackedScene" uid="uid://dpenv0euqqlkg" path="res://npc/npc_behavior_patrol.tscn" id="14_mc6js"]
+[ext_resource type="PackedScene" uid="uid://dyhn3j7qk4dqw" path="res://npc/patrol_location.tscn" id="15_fd11q"]
+[ext_resource type="Script" path="res://Interactables/dialog/scripts/dialog_choice.gd" id="16_atkol"]
+[ext_resource type="Script" path="res://Interactables/dialog/scripts/dialog_branch.gd" id="17_ml2qs"]
+[ext_resource type="PackedScene" uid="uid://cf0a8hxch6kfd" path="res://Props/pot/pot.tscn" id="18_nhvvl"]
+
+[node name="02" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_bx0re")
+music = ExtResource("2_g4lbt")
+
+[node name="Grass-01" parent="." instance=ExtResource("3_tihk8")]
+layer_0/name = "Layer1"
+layer_1/name = "Layer0"
+layer_1/tile_data = PackedInt32Array(-65540, 65536, 63, -65539, 131072, 63, -65538, 196608, 63, -65537, 262144, 63, -131072, 327680, 63, -131071, 393216, 63, -131070, 458752, 63, -131069, 524288, 63, -131068, 589824, 63, -131067, 655360, 63, -131066, 720896, 63, -4, 65536, 63, -3, 131072, 63, -2, 196608, 63, -1, 262144, 63, -65536, 327680, 63, -65535, 393216, 63, -65534, 458752, 63, -65533, 524288, 63, -65532, 589824, 63, -65531, 655360, 63, -65530, 720896, 63, 65532, 65536, 63, 65533, 131072, 63, 65534, 196608, 63, 65535, 262144, 63, 0, 327680, 63, 1, 393216, 63, 2, 458752, 63, 3, 524288, 63, 4, 589824, 63, 5, 655360, 63, 6, 720896, 63, 131068, 65536, 63, 131069, 131072, 63, 131070, 196608, 63, 131071, 262144, 63, 65536, 327680, 63, 65537, 393216, 63, 65538, 458752, 63, 65539, 524288, 63, 65540, 589824, 63, 65541, 655360, 63, 65542, 720896, 63, 196604, 65536, 63, 196605, 131072, 63, 196606, 196608, 63, 196607, 262144, 63, 131072, 327680, 63, 131073, 393216, 63, 131074, 458752, 63, 131075, 524288, 63, 131076, 589824, 63, 131077, 655360, 63, 131078, 720896, 63, 262140, 65536, 63, 262141, 131072, 63, 262142, 196608, 63, 262143, 262144, 63, 196608, 327680, 63, 196609, 393216, 63, 196610, 458752, 63, 196611, 524288, 63, 196612, 589824, 63, 196613, 655360, 63, 196614, 720896, 63, 327676, 65536, 63, 327677, 131072, 63, 327678, 196608, 63, 327679, 262144, 63, 262144, 327680, 63, 262145, 393216, 63, 262146, 458752, 63, 262147, 524288, 63, 262148, 589824, 63, 262149, 655360, 63, 262150, 720896, 63, 393212, 65536, 63, 393213, 131072, 63, 393214, 196608, 63, 393215, 262144, 63, 327680, 327680, 63, 327681, 393216, 63, 327682, 458752, 63, 327683, 524288, 63, 327684, 589824, 63, 327685, 655360, 63, 327686, 720896, 63, 458748, 65536, 63, 458749, 131072, 63, 458750, 196608, 63, 458751, 262144, 63, 393216, 327680, 63, 393217, 393216, 63, 393218, 458752, 63, 393219, 524288, 63, 393220, 589824, 63, 393221, 655360, 63, 393222, 720896, 63, 524284, 65536, 63, 524285, 131072, 63, 524286, 196608, 63, 524287, 262144, 63, 458752, 327680, 63, 458753, 393216, 63, 458754, 458752, 63, 458755, 524288, 63, 458756, 589824, 63, 458757, 655360, 63, 458758, 720896, 63, 589820, 65536, 63, 589821, 131072, 63, 589822, 196608, 63, 589823, 262144, 63, 524288, 327680, 63, 524289, 393216, 63, 524290, 458752, 63, 524291, 524288, 63, 524292, 589824, 63, 524293, 655360, 63, 524294, 720896, 63, 655356, 65536, 63, 655357, 131072, 63, 655358, 196608, 63, 655359, 262144, 63, 589824, 327680, 63, 589825, 393216, 63, 589826, 458752, 63, 589827, 524288, 63, 589828, 589824, 63, 589829, 655360, 63, 589830, 720896, 63, -131065, 65536, 63, -131064, 131072, 63, -131063, 196608, 63, -131062, 262144, 63, -131061, 327680, 63, -131060, 393216, 63, -131059, 458752, 63, -131058, 524288, 63, -65529, 65536, 63, -65528, 131072, 63, -65527, 196608, 63, -65526, 262144, 63, -65525, 327680, 63, -65524, 393216, 63, -65523, 458752, 63, -65522, 524288, 63, 7, 65536, 63, 8, 131072, 63, 9, 196608, 63, 10, 262144, 63, 11, 327680, 63, 12, 393216, 63, 13, 458752, 63, 14, 524288, 63, 65543, 65536, 63, 65544, 131072, 63, 65545, 196608, 63, 65546, 262144, 63, 65547, 327680, 63, 65548, 393216, 63, 65549, 458752, 63, 65550, 524288, 63, 131079, 65536, 63, 131080, 131072, 63, 131081, 196608, 63, 131082, 262144, 63, 131083, 327680, 63, 131084, 393216, 63, 131085, 458752, 63, 131086, 524288, 63, 196615, 65536, 63, 196616, 131072, 63, 196617, 196608, 63, 196618, 262144, 63, 196619, 327680, 63, 196620, 393216, 63, 196621, 458752, 63, 196622, 524288, 63, 262151, 65536, 63, 262152, 131072, 63, 262153, 196608, 63, 262154, 262144, 63, 262155, 327680, 63, 262156, 393216, 63, 262157, 458752, 63, 262158, 524288, 63, 327687, 65536, 63, 327688, 131072, 63, 327689, 196608, 63, 327690, 262144, 63, 327691, 327680, 63, 327692, 393216, 63, 327693, 458752, 63, 327694, 524288, 63, 393223, 65536, 63, 393224, 131072, 63, 393225, 196608, 63, 393226, 262144, 63, 393227, 327680, 63, 393228, 393216, 63, 393229, 458752, 63, 393230, 524288, 63, 458759, 65536, 63, 458760, 131072, 63, 458761, 196608, 63, 458762, 262144, 63, 458763, 327680, 63, 458764, 393216, 63, 458765, 458752, 63, 458766, 524288, 63, 524295, 65536, 63, 524296, 131072, 63, 524297, 196608, 63, 524298, 262144, 63, 524299, 327680, 63, 524300, 393216, 63, 524301, 458752, 63, 524302, 524288, 63, 589831, 65536, 63, 589832, 131072, 63, 589833, 196608, 63, 589834, 262144, 63, 589835, 327680, 63, 589836, 393216, 63, 589837, 458752, 63, 589838, 524288, 63, -131076, 65536, 63, -131075, 131072, 63, -131074, 196608, 63, -131073, 262144, 63, -196608, 327680, 63, -196607, 393216, 63, -196606, 458752, 63, -196605, 524288, 63, -196604, 589824, 63, -196603, 655360, 63, -196602, 720896, 63, -196601, 65536, 63, -196600, 131072, 63, -196599, 196608, 63, -196598, 262144, 63, -196597, 327680, 63, -196596, 393216, 63, -196595, 458752, 63, -196594, 524288, 63)
+
+[node name="Beach" parent="." instance=ExtResource("4_bcgpe")]
+layer_0/tile_data = PackedInt32Array(196605, 2097152, 51, 131070, 2162688, 50, 196606, 2162688, 51, -1, 2228224, 48, 65535, 2228224, 49, 131071, 2228224, 50)
+layer_1/name = "Layer1"
+layer_1/tile_data = PackedInt32Array(-2, 2162688, 40, 65534, 2162688, 41, -65537, 2228224, 39, -1, 2228224, 40, 65535, 2228224, 41, -131072, 2293760, 39, -65536, 2293760, 40, 0, 2293760, 41, -65535, 2359296, 40, 1, 2359296, 41, -65525, 3211264, 0, 11, 3211264, 1, -65524, 3276800, 0, 12, 3276800, 1, -65523, 3342336, 0, 13, 3342336, 1, 65548, 2818048, 0, 131084, 2818048, 1, 65549, 2883584, 0, 131085, 2883584, 1, 65550, 2949120, 0, 131086, 2949120, 1)
+layer_2/name = "Layer2"
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("4_rr8gq")]
+position = Vector2(208, 218)
+
+[node name="Plant" parent="." instance=ExtResource("5_gyos1")]
+position = Vector2(11, 64)
+
+[node name="Plant2" parent="." instance=ExtResource("5_gyos1")]
+position = Vector2(11, 90)
+
+[node name="Plant3" parent="." instance=ExtResource("5_gyos1")]
+position = Vector2(11, 116)
+
+[node name="Plant4" parent="." instance=ExtResource("5_gyos1")]
+position = Vector2(36, 116)
+
+[node name="Plant5" parent="." instance=ExtResource("5_gyos1")]
+position = Vector2(36, 89)
+
+[node name="Plant6" parent="." instance=ExtResource("5_gyos1")]
+position = Vector2(36, 64)
+
+[node name="LevelTransition" parent="." instance=ExtResource("6_xei8u")]
+position = Vector2(224, -64)
+level = "res://Levels/Area01/01.tscn"
+side = 2
+
+[node name="NPC" parent="." instance=ExtResource("7_57inr")]
+position = Vector2(113, 118.941)
+npc_resource = ExtResource("8_14n6t")
+
+[node name="NpcBehaviorWander" parent="NPC" instance=ExtResource("9_h8wga")]
+
+[node name="DialogInteraction" parent="NPC" instance=ExtResource("10_iv6sw")]
+
+[node name="DialogText" type="Node" parent="NPC/DialogInteraction"]
+script = ExtResource("11_qqshg")
+text = "
+Hi, [b]Hero[/b] is that you?"
+npc_info = ExtResource("8_14n6t")
+
+[node name="DialogText2" type="Node" parent="NPC/DialogInteraction"]
+script = ExtResource("11_qqshg")
+text = "
+[wave]Heck yeah it's me![/wave]"
+npc_info = ExtResource("12_qg4ph")
+
+[node name="DialogText3" type="Node" parent="NPC/DialogInteraction"]
+script = ExtResource("11_qqshg")
+text = "Nice bro!
+Happy to have a hero!"
+npc_info = ExtResource("8_14n6t")
+
+[node name="NPC2" parent="." instance=ExtResource("7_57inr")]
+position = Vector2(329, 144)
+npc_resource = ExtResource("13_gyfl5")
+
+[node name="NpcBehaviorPatrol" parent="NPC2" instance=ExtResource("14_mc6js")]
+
+[node name="PatrolLocation" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("15_fd11q")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(64, 0)
+
+[node name="PatrolLocation2" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("15_fd11q")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(64, 62)
+
+[node name="PatrolLocation3" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("15_fd11q")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(-74, 62)
+wait_time = 1.0
+
+[node name="PatrolLocation4" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("15_fd11q")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(-74, 0)
+
+[node name="DialogInteraction" parent="NPC2" instance=ExtResource("10_iv6sw")]
+
+[node name="DialogText" type="Node" parent="NPC2/DialogInteraction"]
+script = ExtResource("11_qqshg")
+text = "Yo! Hero! Will you help retreive my
+magical flute from the dark dungeon?
+Please, pretty please?"
+npc_info = ExtResource("13_gyfl5")
+
+[node name="DialogChoice" type="Node" parent="NPC2/DialogInteraction"]
+script = ExtResource("16_atkol")
+npc_info = ExtResource("13_gyfl5")
+
+[node name="DialogBranch" type="Node" parent="NPC2/DialogInteraction/DialogChoice"]
+script = ExtResource("17_ml2qs")
+text = "You can count on it!"
+npc_info = ExtResource("13_gyfl5")
+
+[node name="DialogText" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch"]
+script = ExtResource("11_qqshg")
+text = "Thank you dear hero! You are a true specimen!"
+npc_info = ExtResource("13_gyfl5")
+
+[node name="DialogText2" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch"]
+script = ExtResource("11_qqshg")
+text = "Oh, and be careful of the evil wizard who lurks in the dungeon!"
+npc_info = ExtResource("13_gyfl5")
+
+[node name="DialogBranch2" type="Node" parent="NPC2/DialogInteraction/DialogChoice"]
+script = ExtResource("17_ml2qs")
+text = "NO! You're crazy bananas!"
+npc_info = ExtResource("13_gyfl5")
+
+[node name="DialogText" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch2"]
+script = ExtResource("11_qqshg")
+text = "Geez! Some lousy hero you are...."
+npc_info = ExtResource("13_gyfl5")
+
+[node name="Pot" parent="." instance=ExtResource("18_nhvvl")]
+position = Vector2(158, 18)
+
+[node name="Pot2" parent="." instance=ExtResource("18_nhvvl")]
+position = Vector2(106, 9)

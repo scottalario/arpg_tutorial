@@ -1,0 +1,431 @@
+[gd_scene load_steps=23 format=3 uid="uid://ce46ssqn6kkmp"]
+
+[ext_resource type="Script" path="res://CharacterSelection/Character_Creator.gd" id="1_1xpgj"]
+[ext_resource type="AudioStream" uid="uid://dmgwymn3xxpu5" path="res://title_scene/audio/waves.wav" id="2_061bo"]
+[ext_resource type="Texture2D" uid="uid://b4sgvdttc7k2v" path="res://Assets/cabina.png" id="2_jehcj"]
+[ext_resource type="Texture2D" uid="uid://cn77vlc5bnrxe" path="res://Assets/outfit/outfit2.png" id="5_ybb7a"]
+[ext_resource type="Texture2D" uid="uid://cbx63748vt2hh" path="res://Assets/hair/hair1.png" id="7_ovi01"]
+[ext_resource type="Texture2D" uid="uid://5bxu7allgemc" path="res://Player/Sprites/body.png" id="8_cehfk"]
+[ext_resource type="Texture2D" uid="uid://ddv275a42olsi" path="res://Assets/accessories/acc.png" id="9_0o1c3"]
+[ext_resource type="Script" path="res://CharacterSelection/Outfit.gd" id="9_bg5y0"]
+[ext_resource type="Texture2D" uid="uid://bt0d1u6svjaq3" path="res://Assets/reflection.png" id="10_sufdb"]
+[ext_resource type="Texture2D" uid="uid://csdrfammxghj3" path="res://Assets/panel2.png" id="11_5yx5w"]
+[ext_resource type="Script" path="res://CharacterSelection/Accessory.gd" id="11_hiepu"]
+[ext_resource type="FontFile" uid="uid://ufo0hj0jkl1o" path="res://GUI/fonts/Abaddon Light.ttf" id="12_ryd20"]
+[ext_resource type="Script" path="res://CharacterSelection/Hair.gd" id="13_rqy2t"]
+[ext_resource type="FontFile" uid="uid://o7gqnagfnby2" path="res://GUI/fonts/Abaddon Bold.ttf" id="13_uk7xf"]
+[ext_resource type="Texture2D" uid="uid://c4puus3vnryim" path="res://Assets/arrow.png" id="15_bba6w"]
+
+[sub_resource type="Animation" id="Animation_wy6fc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_cwf7c"]
+resource_name = "bg"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_um6ut"]
+_data = {
+"RESET": SubResource("Animation_wy6fc"),
+"bg": SubResource("Animation_cwf7c")
+}
+
+[sub_resource type="Animation" id="Animation_2bxne"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Outfit/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hair/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Accessory/Sprite2D:frame_coords")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Accessory/Sprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qwkq2"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Outfit/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-2.98023e-08, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 3, 3, 4, 5, 6, 7, 8, 9, 9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hair/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 3, 3, 4, 5, 6, 7, 8, 9, 9]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Accessory/Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 3, 3, 4, 5, 6, 7, 8, 9, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b880j"]
+_data = {
+"RESET": SubResource("Animation_2bxne"),
+"idle": SubResource("Animation_qwkq2")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hwcux"]
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
+texture = ExtResource("11_5yx5w")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[node name="Selection Scene" type="Node2D"]
+script = ExtResource("1_1xpgj")
+music = ExtResource("2_061bo")
+metadata/_edit_vertical_guides_ = [240.0, 105.0]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+offset_right = 478.0
+offset_bottom = 274.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(279, 136)
+texture = ExtResource("2_jehcj")
+hframes = 2
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_um6ut")
+}
+autoplay = "bg"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_right = 469.0
+offset_bottom = 271.0
+color = Color(0.793878, 0.559743, 0.477316, 1)
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = 1.0
+offset_right = 38.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Skeleton" type="Node2D" parent="CanvasLayer/Control"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(291, 99)
+scale = Vector2(2, 2)
+
+[node name="Body" type="Node2D" parent="CanvasLayer/Control/Skeleton"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/Skeleton/Body"]
+position = Vector2(-3.5, 7)
+texture = ExtResource("8_cehfk")
+hframes = 17
+vframes = 8
+
+[node name="Outfit" type="Node2D" parent="CanvasLayer/Control/Skeleton"]
+script = ExtResource("9_bg5y0")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/Skeleton/Outfit"]
+position = Vector2(-3.5, 7)
+texture = ExtResource("5_ybb7a")
+hframes = 18
+vframes = 8
+
+[node name="Hair" type="Node2D" parent="CanvasLayer/Control/Skeleton"]
+script = ExtResource("13_rqy2t")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/Skeleton/Hair"]
+position = Vector2(-3.5, 7)
+texture = ExtResource("7_ovi01")
+hframes = 18
+vframes = 8
+
+[node name="Accessory" type="Node2D" parent="CanvasLayer/Control/Skeleton"]
+z_index = 1
+position = Vector2(0, -2)
+script = ExtResource("11_hiepu")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/Skeleton/Accessory"]
+position = Vector2(-3.5, 9)
+texture = ExtResource("9_0o1c3")
+hframes = 18
+vframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/Skeleton"]
+libraries = {
+"": SubResource("AnimationLibrary_b880j")
+}
+autoplay = "idle"
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/Control"]
+modulate = Color(1, 1, 1, 0.313726)
+z_index = 1
+position = Vector2(277, 135)
+texture = ExtResource("10_sufdb")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 50.0
+offset_right = 178.0
+offset_bottom = 245.0
+color = Color(0, 0.47451, 0.784314, 0.505882)
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -466.0
+offset_top = -222.0
+offset_right = -300.0
+offset_bottom = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_hwcux")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/PanelContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.439216, 0.396078, 0.321569, 1)
+theme_override_fonts/normal_font = ExtResource("12_ryd20")
+theme_override_fonts/bold_font = ExtResource("13_uk7xf")
+bbcode_enabled = true
+text = "
+[wave][color=orangered] Choose Your Look[/color][/wave]"
+scroll_active = false
+
+[node name="Hair" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 93.0
+offset_right = 157.0
+offset_bottom = 126.0
+color = Color(1, 1, 1, 0)
+
+[node name="CollectionButton" type="Button" parent="CanvasLayer/Control/Hair"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 37.0
+offset_top = 12.0
+offset_right = 77.0
+offset_bottom = 52.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("15_bba6w")
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/Hair"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 13.0
+offset_right = 98.0
+offset_bottom = 31.0
+text = "Hair Style"
+
+[node name="Outfit" type="ColorRect" parent="CanvasLayer/Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 1
+offset_left = 52.0
+offset_top = 173.0
+offset_right = 152.0
+offset_bottom = 203.0
+color = Color(1, 1, 1, 0)
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/Outfit"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 7.0
+offset_right = 57.0
+offset_bottom = 25.0
+text = "Outfit"
+
+[node name="CollectionButton" type="Button" parent="CanvasLayer/Control/Outfit"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 25.0
+offset_top = 5.0
+offset_right = 65.0
+offset_bottom = 45.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("15_bba6w")
+
+[node name="Accessory" type="ColorRect" parent="CanvasLayer/Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 1
+offset_left = 51.0
+offset_top = 134.0
+offset_right = 248.0
+offset_bottom = 166.0
+color = Color(1, 1, 1, 0)
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/Accessory"]
+layout_mode = 0
+offset_top = 11.0
+offset_right = 69.0
+offset_bottom = 29.0
+text = "Accessory"
+
+[node name="CollectionButton" type="Button" parent="CanvasLayer/Control/Accessory"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.5
+offset_top = 8.0
+offset_right = 17.5
+offset_bottom = 48.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("15_bba6w")
+
+[node name="ConfirmButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = -59.0
+offset_right = -329.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "confirm"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 4
+
+[connection signal="pressed" from="CanvasLayer/Control/Hair/CollectionButton" to="CanvasLayer/Control/Skeleton/Hair" method="_on_collection_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Outfit/CollectionButton" to="CanvasLayer/Control/Skeleton/Outfit" method="_on_collection_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Accessory/CollectionButton" to="CanvasLayer/Control/Skeleton/Accessory" method="_on_collection_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ConfirmButton" to="." method="_on_confirm_button_pressed"]

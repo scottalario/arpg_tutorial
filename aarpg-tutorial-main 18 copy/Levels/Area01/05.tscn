@@ -1,0 +1,159 @@
+[gd_scene load_steps=20 format=3 uid="uid://dguy1vonohmt4"]
+
+[ext_resource type="Script" path="res://Levels/scripts/level.gd" id="1_3e2dr"]
+[ext_resource type="AudioStream" uid="uid://io7jxqk648xa" path="res://Levels/music/example_music_01.ogg" id="2_fcg5o"]
+[ext_resource type="PackedScene" uid="uid://dgdqc0v1oicd5" path="res://Tile Maps/grass-01.tscn" id="3_aulrq"]
+[ext_resource type="PackedScene" uid="uid://bney7nbqkhjlm" path="res://Tile Maps/beach.tscn" id="4_676mp"]
+[ext_resource type="PackedScene" uid="uid://dr4blo7ya448q" path="res://Levels/player_spawn.tscn" id="4_kuj5i"]
+[ext_resource type="PackedScene" uid="uid://d4igjv570x7c4" path="res://Props/Plants/plant.tscn" id="5_e5v8i"]
+[ext_resource type="PackedScene" uid="uid://vlpiuopcomwi" path="res://Levels/level_transition.tscn" id="6_b3c7h"]
+[ext_resource type="PackedScene" uid="uid://bi8crg3nv50qw" path="res://npc/npc.tscn" id="7_hg3ra"]
+[ext_resource type="Resource" uid="uid://csvi3x1wp3gy6" path="res://npc/00_npcs/npc_01.tres" id="8_ab4vp"]
+[ext_resource type="PackedScene" uid="uid://dapdr3ojo2pha" path="res://npc/npc_behavior_wander.tscn" id="9_d44oh"]
+[ext_resource type="PackedScene" uid="uid://b22o8rtjyby8c" path="res://Interactables/dialog/dialog_interaction.tscn" id="10_c1hv4"]
+[ext_resource type="Script" path="res://Interactables/dialog/scripts/dialog_text.gd" id="11_najhj"]
+[ext_resource type="Resource" uid="uid://cdc3sykvmnn27" path="res://npc/00_npcs/00_hero.tres" id="12_m3s25"]
+[ext_resource type="Resource" uid="uid://bqfxxks18ou8u" path="res://npc/00_npcs/npc_02.tres" id="13_wxncl"]
+[ext_resource type="PackedScene" uid="uid://dpenv0euqqlkg" path="res://npc/npc_behavior_patrol.tscn" id="14_qtjs4"]
+[ext_resource type="PackedScene" uid="uid://dyhn3j7qk4dqw" path="res://npc/patrol_location.tscn" id="15_75irx"]
+[ext_resource type="Script" path="res://Interactables/dialog/scripts/dialog_choice.gd" id="16_job3d"]
+[ext_resource type="Script" path="res://Interactables/dialog/scripts/dialog_branch.gd" id="17_d6mxo"]
+[ext_resource type="PackedScene" uid="uid://cf0a8hxch6kfd" path="res://Props/pot/pot.tscn" id="18_vwnja"]
+
+[node name="5" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_3e2dr")
+music = ExtResource("2_fcg5o")
+
+[node name="Grass-01" parent="." instance=ExtResource("3_aulrq")]
+layer_0/name = "Layer1"
+layer_0/tile_data = PackedInt32Array(-131075, 65536, 17, -65539, 65536, 17, -3, 2555904, 65, 65533, 2686976, 57, -131074, 131072, 17, -65538, 131072, 17, -2, 131072, 18, 65534, 2752512, 57, -131073, 983040, 60, -65537, 983040, 60, -1, 983040, 60, 65535, 983040, 60, -196608, 983040, 60, -131072, 983040, 60, -65536, 983040, 60, 0, 983040, 60, -196607, 983040, 60, -131071, 983040, 60, -65535, 983040, 60, 1, 65536, 63, -196606, 983040, 60, -131070, 983040, 60, -65534, 65536, 63, 2, 65536, 63, -196605, 983040, 60, -131069, 983040, 60, -65533, 65536, 63, 3, 65536, 63, -196604, 983040, 60, -131068, 983040, 60, -65532, 65536, 63, 4, 65536, 63, -196603, 983040, 60, -131067, 983040, 60, -65531, 65536, 63, 5, 65536, 63, -196602, 983040, 60, -131066, 983040, 60, -65530, 65536, 63, 6, 65536, 63, -196601, 983040, 60, -131065, 983040, 60, -65529, 65536, 63, 7, 65536, 63, -196600, 983040, 60, -131064, 983040, 60, -65528, 65536, 63, 8, 65536, 63, -196599, 983040, 60, -131063, 983040, 60, -65527, 65536, 63, 9, 65536, 63, -196598, 983040, 60, -131062, 983040, 60, -65526, 65536, 63, 10, 65536, 63, -196597, 983040, 60, -131061, 983040, 60, -65525, 65536, 63, 11, 65536, 63, -196596, 983040, 60, -131060, 983040, 60, -65524, 65536, 63, 12, 65536, 63, -196595, 983040, 60, -131059, 983040, 60, -65523, 65536, 63, 13, 65536, 63, -196594, 983040, 60, -131058, 983040, 60, -65522, 65536, 63, 14, 65536, 63, -196593, 983040, 60, -131057, 983040, 60, -65521, 65536, 63, 15, 65536, 63, -196592, 983040, 60, -131056, 983040, 60, -65520, 983040, 60, 16, 65536, 63, -196591, 983040, 60, -131055, 1310720, 52, -65519, 1310720, 53, 17, 1310720, 54, -196590, 1376256, 51, -131054, 1376256, 52, -65518, 1441792, 53, 18, 1441792, 55, -196589, 1376256, 52, -131053, 1769472, 4, -65517, 1769472, 4, 19, 1441792, 55, -131052, 393216, 17, 131070, 65536, 63, 131071, 131072, 63, 65536, 196608, 63, 65537, 262144, 63, 65538, 327680, 63, 65539, 393216, 63, 65540, 458752, 63, 65541, 524288, 63, 65542, 589824, 63, 65543, 655360, 63, 65544, 720896, 63, 196606, 65536, 63, 196607, 131072, 63, 131072, 196608, 63, 131073, 262144, 63, 131074, 327680, 63, 131075, 393216, 63, 131076, 458752, 63, 131077, 524288, 63, 131078, 589824, 63, 131079, 655360, 63, 131080, 720896, 63, 262142, 65536, 63, 262143, 131072, 63, 196608, 196608, 63, 196609, 262144, 63, 196610, 327680, 63, 196611, 393216, 63, 196612, 458752, 63, 196613, 524288, 63, 196614, 589824, 63, 196615, 655360, 63, 196616, 720896, 63, 327678, 65536, 63, 327679, 131072, 63, 262144, 196608, 63, 262145, 262144, 63, 262146, 327680, 63, 262147, 393216, 63, 262148, 458752, 63, 262149, 524288, 63, 262150, 589824, 63, 262151, 655360, 63, 262152, 720896, 63, 393214, 65536, 63, 393215, 131072, 63, 327680, 196608, 63, 327681, 262144, 63, 327682, 327680, 63, 327683, 393216, 63, 327684, 458752, 63, 327685, 524288, 63, 327686, 589824, 63, 327687, 655360, 63, 327688, 720896, 63, 458750, 65536, 63, 458751, 131072, 63, 393216, 196608, 63, 393217, 262144, 63, 393218, 327680, 63, 393219, 393216, 63, 393220, 458752, 63, 393221, 524288, 63, 393222, 589824, 63, 393223, 655360, 63, 393224, 720896, 63, 524286, 65536, 63, 524287, 131072, 63, 458752, 196608, 63, 458753, 262144, 63, 458754, 327680, 63, 458755, 393216, 63, 458756, 458752, 63, 458757, 524288, 63, 458758, 589824, 63, 458759, 655360, 63, 458760, 720896, 63, 589822, 65536, 63, 589823, 131072, 63, 524288, 196608, 63, 524289, 262144, 63, 524290, 327680, 63, 524291, 393216, 63, 524292, 458752, 63, 524293, 524288, 63, 524294, 589824, 63, 524295, 655360, 63, 524296, 720896, 63, 65545, 65536, 63, 65546, 131072, 63, 65547, 196608, 63, 65548, 262144, 63, 65549, 327680, 63, 65550, 393216, 63, 65551, 458752, 63, 65552, 524288, 63, 65553, 589824, 63, 65554, 655360, 63, 65555, 720896, 63, 131081, 65536, 63, 131082, 131072, 63, 131083, 196608, 63, 131084, 262144, 63, 131085, 327680, 63, 131086, 393216, 63, 131087, 458752, 63, 131088, 524288, 63, 131089, 589824, 63, 131090, 655360, 63, 131091, 720896, 63, 196617, 65536, 63, 196618, 131072, 63, 196619, 196608, 63, 196620, 262144, 63, 196621, 327680, 63, 196622, 393216, 63, 196623, 458752, 63, 196624, 524288, 63, 196625, 589824, 63, 196626, 655360, 63, 196627, 720896, 63, 262153, 65536, 63, 262154, 131072, 63, 262155, 196608, 63, 262156, 262144, 63, 262157, 327680, 63, 262158, 393216, 63, 262159, 458752, 63, 262160, 524288, 63, 262161, 589824, 63, 262162, 655360, 63, 262163, 720896, 63, 327689, 65536, 63, 327690, 131072, 63, 327691, 196608, 63, 327692, 262144, 63, 327693, 327680, 63, 327694, 393216, 63, 327695, 458752, 63, 327696, 524288, 63, 327697, 589824, 63, 327698, 655360, 63, 327699, 720896, 63, 393225, 65536, 63, 393226, 131072, 63, 393227, 196608, 63, 393228, 262144, 63, 393229, 327680, 63, 393230, 393216, 63, 393231, 458752, 63, 393232, 524288, 63, 393233, 589824, 63, 393234, 655360, 63, 393235, 720896, 63, 458761, 65536, 63, 458762, 131072, 63, 458763, 196608, 63, 458764, 262144, 63, 458765, 327680, 63, 458766, 393216, 63, 458767, 458752, 63, 458768, 524288, 63, 458769, 589824, 63, 458770, 655360, 63, 458771, 720896, 63, 524297, 65536, 63, 524298, 131072, 63, 524299, 196608, 63, 524300, 262144, 63, 524301, 327680, 63, 524302, 393216, 63, 524303, 458752, 63, 524304, 524288, 63, 524305, 589824, 63, 524306, 655360, 63, 524307, 720896, 63, 65556, 65536, 63, 131092, 65536, 63, 196628, 65536, 63, 262164, 65536, 63, 327700, 65536, 63, 393236, 65536, 63, 458772, 65536, 63, 524308, 65536, 63, 196605, 65536, 63, 262141, 65536, 63, 327677, 65536, 63, 393213, 65536, 63, 458749, 65536, 63, 524285, 65536, 63, 589821, 65536, 63, 196604, 1507328, 56, 262140, 1507328, 57, 327676, 1507328, 58, 131068, 1507328, 54, 327675, 1376256, 54, 393211, 1376256, 55, 393212, 1507328, 55, 327674, 1376256, 55, 262138, 1376256, 54, 262139, 1441792, 53, 262137, 1310720, 54, 196601, 1310720, 53, 196602, 1441792, 54, 196603, 1441792, 54, 131067, 1441792, 54, 131066, 1441792, 54, 131065, 1376256, 54, 65532, 1835008, 3, 65531, 1769472, 2, 65530, 1769472, 2, 65529, 1769472, 2, -4, 2490368, 64, -5, 1769472, 55, -6, 1769472, 55, -7, 1769472, 55, -65543, 1769472, 55, -131079, 1769472, 55, -131078, 1769472, 55, -131077, 1769472, 55, -131076, 1769472, 55, -65540, 1769472, 55, -65541, 1769472, 55, -65542, 1769472, 55, 458745, 917504, 60, 458746, 983040, 60, 458747, 1048576, 60, 458748, 1114112, 60, 524281, 917504, 60, 524282, 983040, 60, 524283, 1048576, 60, 524284, 1114112, 60, 589817, 917504, 60, 589818, 983040, 60, 589819, 1048576, 60, 589820, 1114112, 60, 655353, 917504, 60, 655354, 983040, 60, 655355, 1048576, 60, 655356, 1114112, 60, 655357, 917504, 60, 655358, 983040, 60, 655359, 1048576, 60, 589824, 1114112, 60, 393210, 917504, 60, 393209, 917504, 60, 327673, 917504, 60, 589825, 917504, 60, 589826, 917504, 60, 589827, 917504, 60, 589828, 917504, 60, 589829, 917504, 60, 589830, 917504, 60, 589831, 917504, 60, 589832, 917504, 60, 589833, 917504, 60, 589834, 917504, 60, 589835, 917504, 60, 589836, 917504, 60, 589837, 917504, 60, 589838, 917504, 60, 589839, 917504, 60, 589840, 917504, 60, 589841, 917504, 60, 589842, 917504, 60, 589843, 917504, 60, 589844, 917504, 60)
+layer_1/name = "Layer0"
+layer_1/tile_data = PackedInt32Array(-131075, 65536, 13, -65539, 65536, 17, -3, 65536, 18, 65533, 1507328, 54, 131069, 1507328, 55, -131074, 1835008, 66, -65538, 131072, 17, -2, 131072, 18, 65534, 1441792, 55, -131073, 1048576, 58, -65537, 983040, 60, -1, 1507328, 51, 65535, 1572864, 54, 1, 65536, 63, -131070, 2883584, 19, -65534, 65536, 63, 2, 131072, 63, -131069, 2949120, 19, -65533, 131072, 63, 3, 196608, 63, -131068, 3014656, 19, -65532, 196608, 63, 4, 262144, 63, -131067, 2883584, 18, -65531, 262144, 63, 5, 327680, 63, -131066, 2949120, 18, -65530, 327680, 63, 6, 393216, 63, -131065, 3014656, 18, -65529, 65536, 63, 7, 65536, 63, -131064, 3080192, 18, -65528, 131072, 63, 8, 131072, 63, -131063, 3145728, 18, -65527, 196608, 63, 9, 65536, 63, -196598, 1048576, 55, -131062, 3211264, 18, -65526, 262144, 63, 10, 131072, 63, -196597, 1114112, 55, -131061, 3276800, 18, -65525, 327680, 63, 11, 196608, 63, -196596, 1114112, 55, -131060, 2883584, 18, -65524, 393216, 63, 12, 262144, 63, -196595, 1114112, 55, -131059, 2949120, 18, -65523, 458752, 63, 13, 327680, 63, -196594, 1179648, 55, -131058, 3014656, 18, -65522, 524288, 63, 14, 393216, 63, -131057, 3080192, 18, -65521, 589824, 63, 15, 458752, 63, -131056, 3145728, 18, -65520, 655360, 63, 16, 524288, 63, -196591, 1507328, 60, -131055, 3211264, 18, -131054, 3342336, 19, -196589, 0, 49, -131053, 0, 50, -196588, 131072, 49, -131052, 131072, 51, -65516, 1769472, 4, 20, 1376256, 54)
+
+[node name="Beach" parent="." instance=ExtResource("4_676mp")]
+layer_0/tile_data = PackedInt32Array(-65531, 2162688, 42, 5, 2162688, 43, 65541, 2162688, 44, 131077, 2162688, 45, 196613, 2162688, 46, -65530, 2228224, 42, 6, 2228224, 43, 65542, 2228224, 44, 131078, 2228224, 45, 196614, 2228224, 46, -65529, 2293760, 42, 7, 2293760, 43, 65543, 2293760, 44, 131079, 2293760, 45, 196615, 2293760, 46, 8, 2359296, 43, 65544, 2359296, 44, 131080, 2359296, 45, 196616, 2359296, 46, 196612, 2097152, 46)
+layer_1/name = "Layer1"
+layer_1/z_index = 2
+layer_1/tile_data = PackedInt32Array(-65531, 2162688, 42, 5, 2162688, 43, 65541, 2162688, 44, -65530, 2228224, 42, 6, 2228224, 43, 65542, 2228224, 44, -65529, 2293760, 42, 7, 2293760, 43, 65543, 2293760, 44, 8, 2359296, 43, 65544, 2359296, 44, 65549, 1769472, 58, 131085, 1769472, 59)
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("4_kuj5i")]
+position = Vector2(208, 218)
+
+[node name="Plant" parent="." instance=ExtResource("5_e5v8i")]
+position = Vector2(11, 64)
+
+[node name="Plant2" parent="." instance=ExtResource("5_e5v8i")]
+position = Vector2(11, 90)
+
+[node name="Plant3" parent="." instance=ExtResource("5_e5v8i")]
+position = Vector2(11, 116)
+
+[node name="Plant4" parent="." instance=ExtResource("5_e5v8i")]
+position = Vector2(36, 116)
+
+[node name="Plant5" parent="." instance=ExtResource("5_e5v8i")]
+position = Vector2(36, 89)
+
+[node name="Plant6" parent="." instance=ExtResource("5_e5v8i")]
+position = Vector2(36, 64)
+
+[node name="LevelTransition4" parent="." instance=ExtResource("6_b3c7h")]
+position = Vector2(32, -29)
+scale = Vector2(2, 1)
+level = "res://Levels/Area01/02.tscn"
+target_transition_area = "LevelTransition2"
+side = 2
+
+[node name="NPC" parent="." instance=ExtResource("7_hg3ra")]
+position = Vector2(113, 144)
+npc_resource = ExtResource("8_ab4vp")
+
+[node name="NpcBehaviorWander" parent="NPC" instance=ExtResource("9_d44oh")]
+
+[node name="DialogInteraction" parent="NPC" instance=ExtResource("10_c1hv4")]
+
+[node name="DialogText" type="Node" parent="NPC/DialogInteraction"]
+script = ExtResource("11_najhj")
+text = "
+Hi, [b]Hero[/b] is that you?"
+npc_info = ExtResource("8_ab4vp")
+
+[node name="DialogText2" type="Node" parent="NPC/DialogInteraction"]
+script = ExtResource("11_najhj")
+text = "
+[wave]Heck yeah it's me![/wave]"
+npc_info = ExtResource("12_m3s25")
+
+[node name="DialogText3" type="Node" parent="NPC/DialogInteraction"]
+script = ExtResource("11_najhj")
+text = "Nice bro!
+Happy to have a hero!"
+npc_info = ExtResource("8_ab4vp")
+
+[node name="NPC2" parent="." instance=ExtResource("7_hg3ra")]
+position = Vector2(329, 144)
+npc_resource = ExtResource("13_wxncl")
+
+[node name="NpcBehaviorPatrol" parent="NPC2" instance=ExtResource("14_qtjs4")]
+
+[node name="PatrolLocation" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("15_75irx")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(64, 0)
+
+[node name="PatrolLocation2" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("15_75irx")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(64, 62)
+
+[node name="PatrolLocation3" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("15_75irx")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(-74, 62)
+wait_time = 1.0
+
+[node name="PatrolLocation4" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("15_75irx")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(-74, 0)
+
+[node name="DialogInteraction" parent="NPC2" instance=ExtResource("10_c1hv4")]
+
+[node name="DialogText" type="Node" parent="NPC2/DialogInteraction"]
+script = ExtResource("11_najhj")
+text = "Yo! Hero! Will you help retreive my
+magical flute from the dark dungeon?
+Please, pretty please?"
+npc_info = ExtResource("13_wxncl")
+
+[node name="DialogChoice" type="Node" parent="NPC2/DialogInteraction"]
+script = ExtResource("16_job3d")
+npc_info = ExtResource("13_wxncl")
+
+[node name="DialogBranch" type="Node" parent="NPC2/DialogInteraction/DialogChoice"]
+script = ExtResource("17_d6mxo")
+text = "You can count on it!"
+npc_info = ExtResource("13_wxncl")
+
+[node name="DialogText" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch"]
+script = ExtResource("11_najhj")
+text = "Thank you dear hero! You are a true specimen!"
+npc_info = ExtResource("13_wxncl")
+
+[node name="DialogText2" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch"]
+script = ExtResource("11_najhj")
+text = "Oh, and be careful of the evil wizard who lurks in the dungeon!"
+npc_info = ExtResource("13_wxncl")
+
+[node name="DialogBranch2" type="Node" parent="NPC2/DialogInteraction/DialogChoice"]
+script = ExtResource("17_d6mxo")
+text = "NO! You're crazy bananas!"
+npc_info = ExtResource("13_wxncl")
+
+[node name="DialogText" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch2"]
+script = ExtResource("11_najhj")
+text = "Geez! Some lousy hero you are...."
+npc_info = ExtResource("13_wxncl")
+
+[node name="Pot" parent="." instance=ExtResource("18_vwnja")]
+position = Vector2(144, 210)
+
+[node name="Pot2" parent="." instance=ExtResource("18_vwnja")]
+position = Vector2(124, 218)
